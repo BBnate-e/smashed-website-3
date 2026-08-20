@@ -7,7 +7,7 @@ import {
   type ReactNode,
 } from 'react';
 import { motion } from 'framer-motion';
-import { FallbackImage } from '@/components/ui/fallback-image';
+import Image from 'next/image';
 
 interface ScrollExpandMediaProps {
   mediaType?: 'video' | 'image';
@@ -173,16 +173,17 @@ const ScrollExpandMedia = ({
             animate={{ opacity: 1 - scrollProgress }}
             transition={{ duration: 0.1 }}
           >
-            <FallbackImage
+            <Image
               src={bgImageSrc}
-              alt='Arrière-plan'
+              alt=''
+              aria-hidden
               fill
-              className='object-cover object-center'
+              className='scale-110 object-cover object-center blur-2xl'
               priority
               sizes='100vw'
             />
-            <div className='absolute inset-0 bg-ink/60' />
-            <div className='absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-ink/40' />
+            <div className='absolute inset-0 bg-ink/70' />
+            <div className='absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-ink/50' />
           </motion.div>
 
           <div className='container mx-auto flex flex-col items-center justify-start relative z-10'>
@@ -222,7 +223,7 @@ const ScrollExpandMedia = ({
                   </div>
                 ) : (
                   <div className='relative w-full h-full'>
-                    <FallbackImage
+                    <Image
                       src={mediaSrc}
                       alt={title || 'Contenu média'}
                       fill

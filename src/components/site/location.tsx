@@ -1,13 +1,7 @@
-import { Clock, Mail, MapPin, Phone } from 'lucide-react';
+import { Clock, MapPin, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SectionHeading } from '@/components/site/section-heading';
 import { InstagramIcon } from '@/components/site/social-icons';
-
-const HOURS = [
-  { day: 'Lundi — Mercredi', time: '11h30 – 21h30' },
-  { day: 'Jeudi — Samedi', time: '11h30 – 22h30' },
-  { day: 'Dimanche', time: '12h00 – 21h00' },
-];
 
 export function Location() {
   return (
@@ -16,7 +10,7 @@ export function Location() {
         <SectionHeading
           eyebrow='Nous trouver'
           title='En plein cœur de Fribourg'
-          description='À deux pas de la cathédrale Saint-Nicolas, dans la basse-ville.'
+          description='À deux pas du centre-ville, dans le quartier du Criblet.'
         />
 
         <div className='mt-16 grid grid-cols-1 gap-10 lg:grid-cols-5'>
@@ -25,7 +19,7 @@ export function Location() {
               <div className='flex items-start gap-4'>
                 <MapPin className='mt-0.5 h-5 w-5 shrink-0 text-gold' />
                 <div>
-                  <p className='text-cream'>Rue de Lausanne 12</p>
+                  <p className='text-cream'>Rue du Criblet 5</p>
                   <p className='text-cream-dim'>1700 Fribourg, Suisse</p>
                 </div>
               </div>
@@ -33,57 +27,59 @@ export function Location() {
               <div className='flex items-start gap-4'>
                 <Clock className='mt-0.5 h-5 w-5 shrink-0 text-gold' />
                 <div className='flex flex-col gap-1.5'>
-                  {HOURS.map((h) => (
-                    <div key={h.day} className='flex gap-4 text-sm'>
-                      <span className='w-40 text-cream-dim'>{h.day}</span>
-                      <span className='text-cream'>{h.time}</span>
-                    </div>
-                  ))}
+                  <div className='flex gap-4 text-sm'>
+                    <span className='w-40 text-cream-dim'>Tous les jours</span>
+                    <span className='text-cream'>11h00 – 21h30</span>
+                  </div>
+                  <p className='text-xs text-cream-dim'>
+                    Horaires à titre indicatif — merci de vérifier sur nos réseaux avant de vous déplacer.
+                  </p>
                 </div>
               </div>
 
               <div className='flex items-start gap-4'>
                 <Phone className='mt-0.5 h-5 w-5 shrink-0 text-gold' />
                 <a
-                  href='tel:+41263210000'
+                  href='tel:+41794315664'
                   className='text-cream transition-colors hover:text-gold'
                 >
-                  +41 26 321 00 00
-                </a>
-              </div>
-
-              <div className='flex items-start gap-4'>
-                <Mail className='mt-0.5 h-5 w-5 shrink-0 text-gold' />
-                <a
-                  href='mailto:bonjour@smashedfribourg.ch'
-                  className='text-cream transition-colors hover:text-gold'
-                >
-                  bonjour@smashedfribourg.ch
+                  +41 79 431 56 64
                 </a>
               </div>
 
               <div className='flex items-start gap-4'>
                 <InstagramIcon className='mt-0.5 h-5 w-5 shrink-0 text-gold' />
                 <a
-                  href='https://instagram.com'
+                  href='https://www.instagram.com/smashed_fribourg/'
                   target='_blank'
                   rel='noreferrer'
                   className='text-cream transition-colors hover:text-gold'
                 >
-                  @smashed.fribourg
+                  @smashed_fribourg
                 </a>
               </div>
             </div>
 
-            <Button asChild size='lg' className='w-full'>
-              <a href='tel:+41263210000'>Réserver par téléphone</a>
-            </Button>
+            <div className='flex flex-col gap-3'>
+              <Button asChild size='lg' className='w-full'>
+                <a
+                  href='https://www.ubereats.com/ch-fr/store/smashed-smashburger-fribourg/TCNuWA00WP-6QfLGozbopA'
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  Commander en livraison
+                </a>
+              </Button>
+              <Button asChild variant='outline' size='lg' className='w-full'>
+                <a href='tel:+41794315664'>Appeler le restaurant</a>
+              </Button>
+            </div>
           </div>
 
           <div className='relative min-h-[420px] overflow-hidden rounded-2xl border border-ink-line lg:col-span-3'>
             <iframe
               title='Localisation de Smashed Fribourg'
-              src='https://www.google.com/maps?q=Rue+de+Lausanne+12,+1700+Fribourg,+Suisse&output=embed'
+              src='https://www.google.com/maps?q=Rue+du+Criblet+5,+1700+Fribourg,+Suisse&output=embed'
               className='absolute inset-0 h-full w-full grayscale invert-[0.92] contrast-[1.05]'
               loading='lazy'
               referrerPolicy='no-referrer-when-downgrade'

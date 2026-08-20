@@ -14,8 +14,8 @@ export default function Home() {
 
       <ScrollExpandMedia
         mediaType='image'
-        mediaSrc='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1600&auto=format&fit=crop'
-        bgImageSrc='https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1920&auto=format&fit=crop'
+        mediaSrc='/hero/burger-spread.webp'
+        bgImageSrc='/hero/burger-spread.webp'
         title='Smashed Fribourg'
         date="Smash burgers d'exception"
         scrollToExpand='Faites défiler pour découvrir'

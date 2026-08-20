@@ -1,6 +1,32 @@
-import { FallbackImage } from '@/components/ui/fallback-image';
+import { Flame } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { SectionHeading } from '@/components/site/section-heading';
-import { SIDES_AND_DRINKS, SIGNATURE_BURGERS } from '@/lib/menu-data';
+import { SIDES, SIGNATURE_BURGERS, VEGGIE_BURGERS } from '@/lib/menu-data';
+import type { MenuItem } from '@/lib/menu-data';
+
+function BurgerCard({ item }: { item: MenuItem }) {
+  return (
+    <article className='group flex gap-5 rounded-2xl border border-ink-line bg-ink p-5 transition-colors duration-300 hover:border-gold/40'>
+      <div className='flex h-20 w-20 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-ink-line/60 via-ink-soft to-ink text-gold-dim sm:h-24 sm:w-24'>
+        <Flame className='h-7 w-7' strokeWidth={1.25} />
+      </div>
+      <div className='flex flex-1 flex-col gap-2'>
+        <div className='flex items-start justify-between gap-3'>
+          <h3 className='font-serif-display text-lg text-cream'>{item.name}</h3>
+          <span className='shrink-0 font-serif-display text-lg text-gold'>
+            {item.price}
+          </span>
+        </div>
+        {item.tag && (
+          <span className='w-fit rounded-full border border-gold/30 px-2.5 py-0.5 text-[10px] uppercase tracking-wider text-gold'>
+            {item.tag}
+          </span>
+        )}
+        <p className='text-sm leading-relaxed text-cream-dim'>{item.description}</p>
+      </div>
+    </article>
+  );
+}
 
 export function Menu() {
   return (
@@ -8,55 +34,33 @@ export function Menu() {
       <div className='mx-auto max-w-6xl px-6 md:px-10'>
         <SectionHeading
           eyebrow='Notre Menu'
-          title='Les Signatures Smashed'
-          description='Quatre burgers, une exigence commune : le produit avant tout.'
+          title='Les Smashed Burgers'
+          description='Bœuf Black Angus smashé sur plancha, pain potato bun ou kaiser, sauce signature maison.'
         />
 
         <div className='mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2'>
           {SIGNATURE_BURGERS.map((item) => (
-            <article
-              key={item.name}
-              className='group flex gap-5 rounded-2xl border border-ink-line bg-ink p-5 transition-colors duration-300 hover:border-gold/40'
-            >
-              <div className='relative h-28 w-28 shrink-0 overflow-hidden rounded-xl sm:h-32 sm:w-32'>
-                {item.image && (
-                  <FallbackImage
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    sizes='128px'
-                    className='object-cover transition-transform duration-500 group-hover:scale-110'
-                  />
-                )}
-              </div>
-              <div className='flex flex-1 flex-col gap-2'>
-                <div className='flex items-start justify-between gap-3'>
-                  <h3 className='font-serif-display text-lg text-cream'>
-                    {item.name}
-                  </h3>
-                  <span className='shrink-0 font-serif-display text-lg text-gold'>
-                    {item.price}
-                  </span>
-                </div>
-                {item.tag && (
-                  <span className='w-fit rounded-full border border-gold/30 px-2.5 py-0.5 text-[10px] uppercase tracking-wider text-gold'>
-                    {item.tag}
-                  </span>
-                )}
-                <p className='text-sm leading-relaxed text-cream-dim'>
-                  {item.description}
-                </p>
-              </div>
-            </article>
+            <BurgerCard key={item.name} item={item} />
           ))}
         </div>
 
         <div className='mt-20 border-t border-ink-line pt-14'>
           <h3 className='mb-8 text-center font-serif-display text-2xl text-cream'>
-            Accompagnements &amp; Boissons
+            Versions Végétariennes
           </h3>
-          <div className='mx-auto grid max-w-3xl grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-2'>
-            {SIDES_AND_DRINKS.map((item) => (
+          <div className='grid grid-cols-1 gap-8 sm:grid-cols-2'>
+            {VEGGIE_BURGERS.map((item) => (
+              <BurgerCard key={item.name} item={item} />
+            ))}
+          </div>
+        </div>
+
+        <div className='mt-20 border-t border-ink-line pt-14'>
+          <h3 className='mb-8 text-center font-serif-display text-2xl text-cream'>
+            Accompagnements
+          </h3>
+          <div className='mx-auto flex max-w-md flex-col gap-4'>
+            {SIDES.map((item) => (
               <div
                 key={item.name}
                 className='flex items-baseline justify-between gap-4 border-b border-dashed border-ink-line pb-3'
@@ -69,6 +73,22 @@ export function Menu() {
               </div>
             ))}
           </div>
+          <p className='mt-6 text-center text-sm text-cream-dim'>
+            Menus burger + frites + boisson dès CHF 25.90 en livraison.
+          </p>
+        </div>
+
+        <div className='mt-14 flex flex-wrap items-center justify-center gap-4'>
+          <Button asChild size='lg'>
+            <a href='https://www.ubereats.com/ch-fr/store/smashed-smashburger-fribourg/TCNuWA00WP-6QfLGozbopA' target='_blank' rel='noreferrer'>
+              Commander sur Uber Eats
+            </a>
+          </Button>
+          <Button asChild variant='outline' size='lg'>
+            <a href='https://www.just-eat.ch/fr/menu/smashed' target='_blank' rel='noreferrer'>
+              Commander sur Just Eat
+            </a>
+          </Button>
         </div>
       </div>
     </section>

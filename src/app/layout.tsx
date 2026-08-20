@@ -17,20 +17,20 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Smashed Fribourg — Smash Burgers d'exception",
+  title: "Smashed Fribourg — Smash Burgers",
   description:
-    "Smashed Fribourg façonne des smash burgers premium à base de bœuf suisse, croûte caramélisée et produits locaux. Réservez votre table en plein cœur de Fribourg.",
+    "Smashed, smash burgers au bœuf Black Angus et sauce signature maison, Rue du Criblet 5 à Fribourg. Commandez en livraison ou passez au restaurant.",
   keywords: [
     "smash burger",
     "Fribourg",
     "restaurant Fribourg",
-    "burger premium",
     "Smashed Fribourg",
+    "Rue du Criblet",
   ],
   openGraph: {
-    title: "Smashed Fribourg — Smash Burgers d'exception",
+    title: "Smashed Fribourg — Smash Burgers",
     description:
-      "Bœuf suisse, croûte caramélisée, produits locaux. Découvrez Smashed Fribourg.",
+      "Bœuf Black Angus smashé sur plancha, sauce signature maison. Rue du Criblet 5, Fribourg.",
     locale: "fr_CH",
     type: "website",
   },

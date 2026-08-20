@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -11,6 +12,9 @@ const NAV_LINKS = [
   { href: '#galerie', label: 'Galerie' },
   { href: '#adresse', label: 'Adresse' },
 ];
+
+const ORDER_URL =
+  'https://www.ubereats.com/ch-fr/store/smashed-smashburger-fribourg/TCNuWA00WP-6QfLGozbopA';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,8 +37,15 @@ export function Navbar() {
       )}
     >
       <nav className='mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-10'>
-        <a href='#top' className='font-serif-display text-2xl tracking-wide text-cream'>
-          Smashed<span className='text-gold italic'>.</span>
+        <a href='#top' className='flex items-center'>
+          <Image
+            src='/brand/smashed-wordmark-cream.png'
+            alt='Smashed'
+            width={718}
+            height={130}
+            priority
+            className='h-6 w-auto md:h-7'
+          />
         </a>
 
         <div className='hidden items-center gap-10 md:flex'>
@@ -51,7 +62,9 @@ export function Navbar() {
 
         <div className='hidden md:block'>
           <Button asChild size='sm'>
-            <a href='#adresse'>Réserver une table</a>
+            <a href={ORDER_URL} target='_blank' rel='noreferrer'>
+              Commander
+            </a>
           </Button>
         </div>
 
@@ -79,7 +92,9 @@ export function Navbar() {
               </a>
             ))}
             <Button asChild className='mt-4 w-full' onClick={() => setOpen(false)}>
-              <a href='#adresse'>Réserver une table</a>
+              <a href={ORDER_URL} target='_blank' rel='noreferrer'>
+                Commander
+              </a>
             </Button>
           </div>
         </div>

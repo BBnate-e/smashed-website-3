@@ -4,21 +4,21 @@ import { SectionHeading } from '@/components/site/section-heading';
 const STEPS = [
   {
     icon: Beef,
-    title: 'Bœuf suisse sélectionné',
+    title: 'Bœuf Black Angus',
     description:
-      "Épaule et poitrine hachées le matin même par notre boucher de Fribourg. Aucun additif, juste du bœuf et du sel.",
+      'Un steak haché Black Angus, façonné en boule, pour une viande généreuse en goût et en jutosité.',
   },
   {
     icon: Flame,
-    title: 'Smashé à 250°C',
+    title: 'Smashé sur plancha',
     description:
       'La boule de viande est écrasée sur la plancha brûlante pour maximiser la réaction de Maillard — cette croûte dorée et croustillante, signature de la maison.',
   },
   {
     icon: Wheat,
-    title: 'Pain brioché local',
+    title: 'Potato bun ou kaiser',
     description:
-      "Nos buns sont livrés chaque matin par une boulangerie du canton, légèrement toastés au beurre avant chaque montage.",
+      'Nos burgers sont montés sur un pain moelleux potato bun, ou en version kaiser pour plus de tenue en bouche.',
   },
 ];
 

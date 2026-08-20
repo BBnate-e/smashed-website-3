@@ -2,67 +2,69 @@ export interface MenuItem {
   name: string;
   description: string;
   price: string;
-  image?: string;
   tag?: string;
 }
 
 export const SIGNATURE_BURGERS: MenuItem[] = [
   {
-    name: 'Le Classique',
+    name: 'Smashed Burger',
     description:
-      "Double smash de bœuf suisse, cheddar affiné, oignons caramélisés, pickles maison, sauce Smashed.",
-    price: 'CHF 19.-',
-    image:
-      'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop',
+      'Pain potato bun, steak Black Angus smashé sur plancha, cheddar fondu, oignons frits croustillants, sauce signature Smashed.',
+    price: 'CHF 16.-',
     tag: 'Best-seller',
   },
   {
-    name: 'Le Fribourgeois',
+    name: 'Kaiser Smashed Burger',
     description:
-      'Smash simple, vacherin fribourgeois AOP fondu, lard fumé du canton, roquette, sauce moutarde à l’ancienne.',
-    price: 'CHF 21.-',
-    image:
-      'https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=1200&auto=format&fit=crop',
+      'La même recette signature sur un pain kaiser croustillant, pour plus de tenue en bouche.',
+    price: 'CHF 17.-',
+  },
+  {
+    name: 'Truffe Kaiser Smashed Burger',
+    description:
+      'Notre Kaiser Smashed Burger relevé à la mayonnaise truffée pour une version plus gourmande.',
+    price: 'CHF 18.-',
     tag: 'Signature',
   },
   {
-    name: "L'Ember",
+    name: 'Classic Cheeseburger',
     description:
-      'Double smash, cheddar long affinage, poivrons braisés, oignons rouges, sauce chipotle fumée maison.',
-    price: 'CHF 22.-',
-    image:
-      'https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop',
+      'La version simple et directe : steak smashé, cheddar fondu, pain moelleux. L’essentiel, bien fait.',
+    price: 'CHF 15.-',
+  },
+];
+
+export const VEGGIE_BURGERS: MenuItem[] = [
+  {
+    name: 'Veggie Smashed Burger',
+    description: 'La recette Smashed Burger déclinée en version végétarienne.',
+    price: 'CHF 16.-',
+    tag: 'Végétarien',
   },
   {
-    name: 'Le Végétal',
-    description:
-      "Galette de haricots noirs et betterave grillée, cheddar végétal, avocat, oignons croustillants.",
-    price: 'CHF 20.-',
-    image:
-      'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=1200&auto=format&fit=crop',
+    name: 'Veggie Kaiser Smashed Burger',
+    description: 'Version végétarienne du Kaiser Smashed Burger, sur pain kaiser.',
+    price: 'CHF 17.-',
+    tag: 'Végétarien',
+  },
+  {
+    name: 'Veggie Truffe Kaiser Smashed Burger',
+    description: 'Version végétarienne relevée à la mayonnaise truffée.',
+    price: 'CHF 18.-',
+    tag: 'Végétarien',
+  },
+  {
+    name: 'Veggie Classic Cheeseburger',
+    description: 'La version végétarienne du Classic Cheeseburger.',
+    price: 'CHF 15.-',
     tag: 'Végétarien',
   },
 ];
 
-export const SIDES_AND_DRINKS: MenuItem[] = [
+export const SIDES: MenuItem[] = [
   {
-    name: 'Frites maison, sel de Bex',
-    description: 'Pommes de terre du canton, double cuisson, croustillantes.',
-    price: 'CHF 7.-',
-  },
-  {
-    name: 'Onion rings dorés',
-    description: 'Panure croustillante, sauce fumée au paprika.',
-    price: 'CHF 8.-',
-  },
-  {
-    name: 'Coleslaw maison',
-    description: 'Chou blanc, carotte, sauce crémeuse au yaourt.',
+    name: 'Frites',
+    description: 'Portion de frites maison.',
     price: 'CHF 6.-',
-  },
-  {
-    name: 'Milkshake vanille bourbon',
-    description: 'Glace artisanale, crème fouettée, éclats de caramel.',
-    price: 'CHF 9.-',
   },
 ];

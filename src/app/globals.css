@@ -79,6 +79,31 @@ body {
   font-family: var(--font-serif);
 }
 
+/* gallery texture tiles (no stock photography — crafted patterns) */
+.gallery-texture.tile-plancha {
+  background:
+    repeating-linear-gradient(115deg, #1c150d 0 2px, #211809 2px 26px),
+    radial-gradient(circle at 75% 20%, rgba(222, 134, 84, 0.3), transparent 55%);
+}
+.gallery-texture.tile-croute {
+  background:
+    radial-gradient(circle at 30% 70%, rgba(201, 161, 92, 0.25), transparent 55%),
+    var(--color-ink-line);
+}
+.gallery-texture.tile-pain {
+  background:
+    repeating-radial-gradient(circle at 20% 20%, rgba(244, 236, 221, 0.05) 0 1px, transparent 1px 14px),
+    var(--color-ink-soft);
+}
+.gallery-texture.tile-feu {
+  background: linear-gradient(160deg, rgba(182, 80, 46, 0.28), var(--color-ink) 65%);
+}
+.gallery-texture.tile-salle {
+  background:
+    repeating-linear-gradient(-60deg, rgba(201, 161, 92, 0.08) 0 1px, transparent 1px 18px),
+    var(--color-ink-line);
+}
+
 /* subtle grain texture overlay used across dark sections */
 .grain-overlay {
   position: relative;
