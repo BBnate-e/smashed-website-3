@@ -38,8 +38,28 @@ const ScrollExpandMedia = ({
   const [mediaFullyExpanded, setMediaFullyExpanded] = useState<boolean>(false);
   const [touchStartY, setTouchStartY] = useState<number>(0);
   const [isMobileState, setIsMobileState] = useState<boolean>(false);
+  const [videoBlocked, setVideoBlocked] = useState<boolean>(false);
 
   const sectionRef = useRef<HTMLDivElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  // Some mobile browsers (in-app webviews, "never auto-play" settings, slow
+  // networks) silently refuse the autoplay attribute even with muted +
+  // playsInline set. Retry once imperatively, and fall back to a tap-to-play
+  // button rather than leaving the panel stuck on the poster frame.
+  useEffect(() => {
+    if (mediaType !== 'video') return;
+    const video = videoRef.current;
+    if (!video) return;
+    const playPromise = video.play();
+    if (playPromise) {
+      playPromise.catch(() => setVideoBlocked(true));
+    }
+  }, [mediaType]);
+
+  const handleManualPlay = () => {
+    videoRef.current?.play().then(() => setVideoBlocked(false));
+  };
 
   useEffect(() => {
     const handleWheel = (e: globalThis.WheelEvent) => {
@@ -201,8 +221,9 @@ const ScrollExpandMedia = ({
                 }}
               >
                 {mediaType === 'video' ? (
-                  <div className='relative w-full h-full pointer-events-none'>
+                  <div className='relative w-full h-full'>
                     <video
+                      ref={videoRef}
                       src={withBasePath(mediaSrc)}
                       poster={posterSrc ? withBasePath(posterSrc) : undefined}
                       autoPlay
@@ -210,17 +231,35 @@ const ScrollExpandMedia = ({
                       loop
                       playsInline
                       preload='auto'
-                      className='w-full h-full object-cover rounded-xl'
+                      className='w-full h-full object-cover rounded-xl pointer-events-none'
                       controls={false}
                       disablePictureInPicture
                       disableRemotePlayback
                     />
                     <motion.div
-                      className='absolute inset-0 bg-ink/30 rounded-xl'
+                      className='absolute inset-0 bg-ink/30 rounded-xl pointer-events-none'
                       initial={{ opacity: 0.7 }}
                       animate={{ opacity: 0.5 - scrollProgress * 0.3 }}
                       transition={{ duration: 0.2 }}
                     />
+                    {videoBlocked && (
+                      <button
+                        type='button'
+                        onClick={handleManualPlay}
+                        aria-label='Lancer la vidéo'
+                        className='absolute inset-0 z-10 flex items-center justify-center'
+                      >
+                        <span className='flex h-16 w-16 items-center justify-center rounded-full bg-ink/70 ring-1 ring-cream/30 backdrop-blur-sm'>
+                          <svg
+                            viewBox='0 0 24 24'
+                            fill='currentColor'
+                            className='ml-1 h-6 w-6 text-cream'
+                          >
+                            <path d='M8 5v14l11-7z' />
+                          </svg>
+                        </span>
+                      </button>
+                    )}
                   </div>
                 ) : (
                   <div className='relative w-full h-full'>
