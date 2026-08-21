@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { SectionHeading } from '@/components/site/section-heading';
+import { withBasePath } from '@/lib/utils';
 
 const STEPS = [
   {
@@ -36,7 +37,7 @@ export function Philosophy() {
         <div className='mt-16 grid grid-cols-1 gap-10 lg:grid-cols-5 lg:items-center'>
           <div className='relative mx-auto aspect-[579/831] w-full max-w-sm overflow-hidden rounded-2xl border border-ink-line lg:col-span-2'>
             <Image
-              src='/concept/composition.webp'
+              src={withBasePath('/concept/composition.webp')}
               alt='Composition du Smashed Burger : potato bun, bœuf Black Angus suisse, cheddar, sauce signature, oignons croustillants assaisonnés'
               fill
               sizes='(max-width: 1024px) 90vw, 36vw'

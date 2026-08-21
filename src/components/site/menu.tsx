@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { SectionHeading } from '@/components/site/section-heading';
 import { SIDES, SIGNATURE_BURGERS, VEGGIE_BURGERS } from '@/lib/menu-data';
 import type { MenuItem } from '@/lib/menu-data';
+import { withBasePath } from '@/lib/utils';
 
 function BurgerCard({ item }: { item: MenuItem }) {
   return (
@@ -11,7 +12,7 @@ function BurgerCard({ item }: { item: MenuItem }) {
       <div className='relative flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-ink-line/60 via-ink-soft to-ink text-gold-dim sm:h-24 sm:w-24'>
         {item.image ? (
           <Image
-            src={item.image}
+            src={withBasePath(item.image)}
             alt={item.name}
             fill
             sizes='96px'

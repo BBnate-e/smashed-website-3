@@ -8,6 +8,7 @@ import {
 } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { withBasePath } from '@/lib/utils';
 
 interface ScrollExpandMediaProps {
   mediaType?: 'video' | 'image';
@@ -174,7 +175,7 @@ const ScrollExpandMedia = ({
             transition={{ duration: 0.1 }}
           >
             <Image
-              src={bgImageSrc}
+              src={withBasePath(bgImageSrc)}
               alt=''
               aria-hidden
               fill
@@ -202,8 +203,8 @@ const ScrollExpandMedia = ({
                 {mediaType === 'video' ? (
                   <div className='relative w-full h-full pointer-events-none'>
                     <video
-                      src={mediaSrc}
-                      poster={posterSrc}
+                      src={withBasePath(mediaSrc)}
+                      poster={posterSrc ? withBasePath(posterSrc) : undefined}
                       autoPlay
                       muted
                       loop
@@ -224,7 +225,7 @@ const ScrollExpandMedia = ({
                 ) : (
                   <div className='relative w-full h-full'>
                     <Image
-                      src={mediaSrc}
+                      src={withBasePath(mediaSrc)}
                       alt={title || 'Contenu média'}
                       fill
                       className='object-cover rounded-xl'

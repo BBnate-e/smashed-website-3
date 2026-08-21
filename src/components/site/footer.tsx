@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { InstagramIcon } from '@/components/site/social-icons';
+import { withBasePath } from '@/lib/utils';
 
 export function Footer() {
   return (
@@ -7,7 +8,7 @@ export function Footer() {
       <div className='mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 text-center md:flex-row md:justify-between md:text-left'>
         <div>
           <Image
-            src='/brand/smashed-wordmark-cream.png'
+            src={withBasePath('/brand/smashed-wordmark-cream.png')}
             alt='Smashed'
             width={718}
             height={130}

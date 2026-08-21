@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { SectionHeading } from '@/components/site/section-heading';
+import { withBasePath } from '@/lib/utils';
 
 const SMALL_TILES = [
   {
@@ -24,7 +25,7 @@ export function Gallery() {
         <div className='mt-16 grid grid-cols-2 gap-4 sm:grid-cols-3'>
           <div className='group relative aspect-[4/5] overflow-hidden rounded-xl sm:col-span-2 sm:row-span-2'>
             <Image
-              src='/hero/burger-spread.webp'
+              src={withBasePath('/hero/burger-spread.webp')}
               alt='Sélection de burgers Smashed avec frites'
               fill
               sizes='(max-width: 640px) 100vw, 66vw'
@@ -40,7 +41,7 @@ export function Gallery() {
                 className='group relative aspect-[4/5] overflow-hidden rounded-xl'
               >
                 <Image
-                  src={tile.photo}
+                  src={withBasePath(tile.photo)}
                   alt={tile.label}
                   fill
                   sizes='(max-width: 640px) 50vw, 33vw'

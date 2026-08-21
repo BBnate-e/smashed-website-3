@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import { cn, withBasePath } from '@/lib/utils';
 
 const NAV_LINKS = [
   { href: '#concept', label: 'Le Concept' },
@@ -39,7 +39,7 @@ export function Navbar() {
       <nav className='mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-10'>
         <a href='#top' className='flex items-center'>
           <Image
-            src='/brand/smashed-wordmark-cream.png'
+            src={withBasePath('/brand/smashed-wordmark-cream.png')}
             alt='Smashed'
             width={718}
             height={130}
