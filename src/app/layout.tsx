@@ -19,7 +19,7 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   title: "Smashed Fribourg — Smash Burgers",
   description:
-    "Smashed, smash burgers au bœuf Black Angus et sauce signature maison, Rue du Criblet 5 à Fribourg. Commandez en livraison ou passez au restaurant.",
+    "Smashed, smash burgers au bœuf Black Angus suisse et sauce signature maison, Rue du Criblet 5 à Fribourg. Commandez en livraison ou passez au restaurant.",
   keywords: [
     "smash burger",
     "Fribourg",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Smashed Fribourg — Smash Burgers",
     description:
-      "Bœuf Black Angus smashé sur plancha, sauce signature maison. Rue du Criblet 5, Fribourg.",
+      "Bœuf Black Angus suisse smashé sur plancha, sauce signature maison. Rue du Criblet 5, Fribourg.",
     locale: "fr_CH",
     type: "website",
   },

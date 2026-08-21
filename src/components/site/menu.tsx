@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Flame } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SectionHeading } from '@/components/site/section-heading';
@@ -7,8 +8,18 @@ import type { MenuItem } from '@/lib/menu-data';
 function BurgerCard({ item }: { item: MenuItem }) {
   return (
     <article className='group flex gap-5 rounded-2xl border border-ink-line bg-ink p-5 transition-colors duration-300 hover:border-gold/40'>
-      <div className='flex h-20 w-20 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-ink-line/60 via-ink-soft to-ink text-gold-dim sm:h-24 sm:w-24'>
-        <Flame className='h-7 w-7' strokeWidth={1.25} />
+      <div className='relative flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-ink-line/60 via-ink-soft to-ink text-gold-dim sm:h-24 sm:w-24'>
+        {item.image ? (
+          <Image
+            src={item.image}
+            alt={item.name}
+            fill
+            sizes='96px'
+            className='object-cover'
+          />
+        ) : (
+          <Flame className='h-7 w-7' strokeWidth={1.25} />
+        )}
       </div>
       <div className='flex flex-1 flex-col gap-2'>
         <div className='flex items-start justify-between gap-3'>
@@ -35,7 +46,7 @@ export function Menu() {
         <SectionHeading
           eyebrow='Notre Menu'
           title='Les Smashed Burgers'
-          description='Bœuf Black Angus smashé sur plancha, pain potato bun ou kaiser, sauce signature maison.'
+          description='Bœuf Black Angus suisse smashé sur plancha, pain potato bun ou kaiser, sauce signature maison.'
         />
 
         <div className='mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2'>

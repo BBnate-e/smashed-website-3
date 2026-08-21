@@ -3,15 +3,17 @@ export interface MenuItem {
   description: string;
   price: string;
   tag?: string;
+  image?: string;
 }
 
 export const SIGNATURE_BURGERS: MenuItem[] = [
   {
     name: 'Smashed Burger',
     description:
-      'Pain potato bun, steak Black Angus smashé sur plancha, cheddar fondu, oignons frits croustillants, sauce signature Smashed.',
+      'Pain potato bun, steak Black Angus suisse smashé sur plancha, cheddar fondu, oignons croustillants assaisonnés, sauce signature Smashed.',
     price: 'CHF 16.-',
     tag: 'Best-seller',
+    image: '/menu/smashed-burger-closeup.webp',
   },
   {
     name: 'Kaiser Smashed Burger',
