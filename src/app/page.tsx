@@ -13,8 +13,9 @@ export default function Home() {
       <Navbar />
 
       <ScrollExpandMedia
-        mediaType='image'
-        mediaSrc='/hero/burger-spread.webp'
+        mediaType='video'
+        mediaSrc='/hero/smash-action.mp4'
+        posterSrc='/hero/burger-spread.webp'
         bgImageSrc='/hero/burger-spread.webp'
         title='Smashed Fribourg'
         date="Smash burgers d'exception"
